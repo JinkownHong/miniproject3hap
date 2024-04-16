@@ -13,6 +13,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Jua&family=Nanum+Pen+Script&display=swap');
 
         * {
+
             font-family: "Dongle", sans-serif;
             font-weight: 400;
             font-style: normal;
@@ -78,8 +79,93 @@
             border-left: 20px solid transparent;
             border-right: 20px solid transparent;
             border-bottom: 40px solid #ffd400;
+            margin-bottom: 20px;
+        }
+
+        #t1,
+        div {
+            background-color: #ffd400;
+            background-position: center;
+            border: 1px solid white;
+            border-radius: 10px;
+            width: 1200px;
+
+            margin: 0px auto 0px auto;
         }
     </style>
+    <script>
+        let cnt = 1;
+        function a() {
+            let writer = f.writer.value;
+            let pwd = f.pwd.value;
+            let content = f.content.value;
+            let el = mkDiv(writer, pwd, content);
+            let list = document.getElementById("list");
+            list.appendChild(el);
+            f.writer.value = "";
+            f.pwd.value = "";
+            f.content.value = "";
+        }
+        function mkDiv(writer, pwd, content) {
+            let newDiv = document.createElement("div");//새 div태그 생성  <div id="d_1" pwd='111'>
+            newDiv.id = "d_" + cnt;//생성한 div에 id 지정. d_cnt
+            newDiv.pwd = pwd;
+            let html = ""; //생성된 div에 출력될 내용
+            html += "작성자 : <span id='w_" + cnt + "'>" + writer + "</span><br/>";
+            html += "내용 : <span id='c_" + cnt + "'>" + content + "</span><br/>";
+            html += "<input type='button' value='수정' onclick=editForm(" + cnt
+                + ")>"; //editForm(2)
+            html += "<input type='button' value='삭제' onclick=del(" + cnt + ")>";
+            newDiv.innerHTML = html;
+            cnt++;
+            return newDiv;
+        }
+        function editForm(cnt) {
+            let editDiv = document.getElementById("d_" + cnt); //수정할 글의 div
+            let editForm = document.getElementById("editf");
+            editDiv.appendChild(editForm);
+            let writer = document.getElementById("w_" + cnt).innerHTML;
+            let content = document.getElementById("c_" + cnt).innerHTML;
+            document.getElementById("editwriter").value = writer;
+            document.getElementById("editcontent").value = content;
+            document.getElementById("editbtn").cnt = cnt;//버튼에 cnt속성을 추가해서, 수정 글번호를 저장
+            editForm.style.display = '';
+        }
+        function cancel() {
+            let editForm = document.getElementById("editf");
+            editForm.style.display = 'none';
+            document.getElementsByTagName("body")[0].appendChild(editForm);
+
+        }
+        function edit() {
+            let cnt = document.getElementById("editbtn").cnt;
+            let editDiv = document.getElementById("d_" + cnt);
+            let pwd2 = document.getElementById("editpwd").value;//수정폼에 입력한 글 비밀번호
+            if (editDiv.pwd != pwd2) {
+                alert("비밀번호 불일치. 수정불가");
+            } else {
+                let newWriter = document.getElementById("editwriter").value;
+                let newContent = document.getElementById("editcontent").value;
+                document.getElementById("w_" + cnt).innerHTML = newWriter;
+                document.getElementById("c_" + cnt).innerHTML = newContent;
+                alert("수정 완료")
+            }
+            document.getElementById("editwriter").value = "";
+            document.getElementById("editcontent").value = "";
+            document.getElementById("editpwd").value = "";
+            cancel();
+        }
+        function del(cnt) {
+            let pwd = prompt("비밀번호");
+            let delDiv = document.getElementById("d_" + cnt);
+            if (pwd == delDiv.pwd) {
+                document.getElementById("list").removeChild(delDiv);
+                alert("삭제완료")
+            } else {
+                alert("비밀번호 불일치. 삭제취소");
+            }
+        }
+    </script>
 </head>
 
 <body style="background-color:#ff7f00">
@@ -89,31 +175,31 @@
 
     <div class="box">
         <img class="profile"
-            src="https://i.ibb.co/T08MjvT/logo.png">
+            src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA4MTlfMTk0%2FMDAxNjkyNDM4MDA0NjAy.kvwIGGOvGCwv0vZPnqlCSKmSVI400o9LoPe3Ks25bVcg.P1ztMjyLQc9DSNS_qr5zsK_oK0IVKgfmu58jGcVoBiAg.JPEG.ashash95%2F20230819%25A3%25DF171001.jpg&type=sc960_832">
     </div>
 
     <div class="cols">
         <div class="row row-cols-1 row-cols-md-4 g-4">
             <div class="col">
-                <img src="https://i.ibb.co/fxdM4fb/IMG-5928.jpg" class="card-img-top" alt="...">
+                <img src="IMG_5928.jpeg" class="card-img-top" alt="...">
                 <h5 class="name">NAME : 류원형</h5>
                 <h5 class="age">AGE : 28</h5>
                 <h5 class="mbti">MBTI : INFJ</h5>
             </div>
             <div class="col">
-                <img src="https://i.ibb.co/sg8Q1SJ/Kakao-Talk-Photo-2024-04-16-15-28-02.jpg" class="card-img-top" alt="...">
+                <img src="KakaoTalk_Photo_2024-04-16-15-28-02.jpeg" class="card-img-top" alt="...">
                 <h5 class="name">NAME : 홍진권</h5>
                 <h5 class="age">AGE : 26</h5>
                 <h5 class="mbti">MBTI : INFJ</h5>
             </div>
             <div class="col">
-                <img src="https://i.ibb.co/GMgJQyj/d.jpg" class="card-img-top" alt="...">
+                <img src="d.jpeg" class="card-img-top" alt="...">
                 <h5 class="name">NAME : 이행도</h5>
                 <h5 class="age">AGE : 28</h5>
                 <h5 class="mbti">MBTI : INFP</h5>
             </div>
             <div class="col">
-                <img src="https://i.ibb.co/rGvDzWF/jeju.jpg" class="card-img-top" alt="...">
+                <img src="jeju.jpeg" class="card-img-top" alt="...">
                 <h5 class="name">NAME : 김보현</h5>
                 <h5 class="age">AGE : 31</h5>
                 <h5 class="mbti">MBTI : INTP</h5>
@@ -125,6 +211,53 @@
         <h4> MBTI : i</h4>
         <h5>'매일같이 안부 묻는 우리, 어쩌면 절친일지도?..'</h5>
     </div>
+
+    <form name="f">
+        <table id="t1">
+            <tr>
+                <th>
+                    <h3>방명록</h3>
+                </th>
+            </tr>
+            <tr>
+                <th>작성자</th>
+                <td><input type="text" name="writer" id="writer"></td>
+            </tr>
+            <tr>
+                <th>비밀번호</th>
+                <td><input type="password" name="pwd" id="pwd"></td>
+            </tr>
+            <tr>
+                <th>내용</th>
+                <td><input type="text" name="content" id="content"></td>
+            </tr>
+            <tr>
+                <th>작성</th>
+                <td><input type="button" value="작성" onclick="a()"></td>
+            </tr>
+        </table>
+    </form>
+    <div id="list"></div>
+    <!-- 수정폼 -->
+    <table id="editf" style="display: none;">
+        <tr>
+            <th>작성자</th>
+            <td><input type="text" name="editwriter" id="editwriter"></td>
+        </tr>
+        <tr>
+            <th>비밀번호</th>
+            <td><input type="password" name="editpwd" id="editpwd"></td>
+        </tr>
+        <tr>
+            <th>내용</th>
+            <td><input type="text" name="editcontent" id="editcontent"></td>
+        </tr>
+        <tr>
+            <th>수정완료</th>
+            <td><input type="button" value="수정완료" id="editbtn" onclick="edit()"> <input type="button" value="취소"
+                    onclick="cancel()"></td>
+        </tr>
+    </table>
 </body>
 
 </html>
