@@ -82,13 +82,23 @@
             margin-bottom: 20px;
         }
 
-        #t1,
-        div {
+        #t1 {
+            width: 1200px;
             background-color: #ffd400;
             background-position: center;
             border: 1px solid white;
-            border-radius: 10px;
+            border-radius: 5px;
+
+
+            margin: 0px auto 0px auto;
+        }
+
+        #list {
             width: 1200px;
+            background-color: #ffd400;
+            background-position: center;
+            border: 1px solid white;
+            border-radius: 5px;
 
             margin: 0px auto 0px auto;
         }
@@ -213,7 +223,7 @@
     </div>
 
     <form name="f">
-        <table id="t1">
+        <table id="t1"> <!-- id에서 class로 변경 -->
             <tr>
                 <th>
                     <h3>방명록</h3>
@@ -237,7 +247,7 @@
             </tr>
         </table>
     </form>
-    <div id="list"></div>
+    <div id="list"></div> <!-- id를 클래스로 변경 -->
     <!-- 수정폼 -->
     <table id="editf" style="display: none;">
         <tr>
