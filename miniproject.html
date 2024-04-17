@@ -13,8 +13,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Jua&family=Nanum+Pen+Script&display=swap');
 
         * {
-
-            font-family: "Dongle", sans-serif;
+            font-family: "Jua", sans-serif;
             font-weight: 400;
             font-style: normal;
         }
@@ -141,6 +140,10 @@
             background-color: white;
             border: 1px solid black;
         }
+
+        .wycg {
+            color: aliceblue;
+        }
     </style>
     <script>
         let cnt = 1;
@@ -215,9 +218,18 @@
             }
         }
 
+        $(document).ready(function () {
+            $('#memberbox').hide();
+            $('#speech-bubble').hide();
+            $('#t1').hide();
+            $('#list').hide();
+        })
+
         function openclose() {
             $('#memberbox').toggle();
             $('#speech-bubble').toggle();
+            $('#t1').toggle();
+            $('#list').toggle();
         }
 
     </script>
@@ -225,13 +237,13 @@
 
 <body style="background-color:#ff7f00">
     <div>
-        <h1 class="helloworld"> HELLO WORLD! WE ARE "WOULD U CHOI GANG" 3합 </h1>
+        <h1 class="helloworld"> HELLO WORLD! WE ARE <span class="wycg">"WOULD U CHOI KANG"</span> 3합 </h1>
     </div>
 
     <div class="flex">
         <div class="box">
             <img class="profile" src="https://i.ibb.co/T08MjvT/logo.png" alt="..." button
-            onclick="openclose()"></button>
+                onclick="openclose()"></button>
         </div>
         <h2 class="guide" id="msg">
             ** 3합 맴버들이 궁금하다? 로고 클릭 ㄱㄱ **
@@ -249,7 +261,7 @@
             </div>
             <div class="col">
                 <img src="KakaoTalk_Photo_2024-04-16-15-28-02.jpeg" class="card-img-top" alt="..." button
-                    onclick="window.open('https://naver.com')"></button>
+                    onclick="window.location.replace('./test.html')"></button>
                 <h5 class="name">NAME : 홍진권</h5>
                 <h5 class="age">AGE : 26</h5>
                 <h5 class="mbti">MBTI : INFJ</h5>
@@ -272,8 +284,8 @@
     </div>
 
     <div id="speech-bubble" class="speech-bubble">
-        <h4> MBTI : i</h4>
-        <h5>'매일같이 안부 묻는 우리, 어쩌면 절친일지도?..'</h5>
+        <h4> MBTI : i</h4git>
+            <h5>'매일같이 안부 묻는 우리, 어쩌면 절친일지도?..'</h5>
     </div>
 
     <form name="f">
