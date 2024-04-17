@@ -110,6 +110,34 @@
         #editf {
             margin: 10px 0px 10px 0px;
         }
+
+        #writer {
+            width: 1090px;
+            border-radius: 8px;
+            background-color: white;
+            border: 1px solid black;
+        }
+
+        #pwd {
+            width: 1090px;
+            border-radius: 8px;
+            background-color: white;
+            border: 1px solid black;
+        }
+
+        #content {
+            width: 1090px;
+            border-radius: 8px;
+            background-color: white;
+            border: 1px solid black;
+        }
+
+        #btn {
+            border-radius: 8px;
+            background-color: white;
+            border: 1px solid black;
+            color: black;
+        }
     </style>
     <script>
         let cnt = 1;
@@ -183,7 +211,7 @@
                 alert("비밀번호 불일치. 삭제취소");
             }
         }
-        
+
     </script>
 </head>
 
@@ -235,7 +263,7 @@
     </div>
 
     <form name="f">
-        <table id="t1" style="padding: 10px 0px 10px 10px;"> 
+        <table id="t1" style="padding: 10px 0px 10px 10px;">
             <tr>
                 <th>
                     <h3>방명록</h3>
@@ -247,7 +275,7 @@
             </tr>
             <tr>
                 <th>비밀번호</th>
-                <td><input type="password" name="pwd" id="pwd"></td>
+                <td class="pwd"><input type="password" name="pwd" id="pwd"></td>
             </tr>
             <tr>
                 <th>내용</th>
@@ -255,11 +283,11 @@
             </tr>
             <tr>
                 <th>작성</th>
-                <td><input type="button" value="작성" onclick="a()"></td>
+                <td><input type="button" value="작성" onclick="a()" id="btn"></td>
             </tr>
         </table>
     </form>
-    <div id="list" style="padding: 10px 0px 10px 10px;"></div> 
+    <div id="list" style="padding: 10px 0px 10px 10px;"></div>
     <!-- 수정폼 -->
     <table id="editf" style="display: none;">
         <tr>
