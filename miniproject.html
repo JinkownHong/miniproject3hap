@@ -42,7 +42,7 @@
             border-radius: 70%;
             border: 3px solid white;
             overflow: hidden;
-            margin: 0px auto 0px auto;
+            margin: 0px 10px 0px auto;
         }
 
         .profile {
@@ -105,6 +105,15 @@
 
         .gap {
             margin-top: 40px;
+        }
+
+        .guide {
+            margin: 40px 330px 0px 10px;
+            color: white
+        }
+
+        .flex {
+            display: flex;
         }
 
         #editf {
@@ -212,6 +221,11 @@
             }
         }
 
+        function openclose() {
+            $('#memberbox').toggle();
+            $('#speech-bubble').toggle();
+        }
+
     </script>
 </head>
 
@@ -220,11 +234,17 @@
         <h1 class="helloworld"> HELLO WORLD! WE ARE "WOULD U CHOI GANG" 3합 </h1>
     </div>
 
-    <div class="box">
-        <img class="profile" src="https://i.ibb.co/T08MjvT/logo.png">
+    <div class="flex">
+        <div class="box">
+            <img class="profile" src="https://i.ibb.co/T08MjvT/logo.png" alt="..." button
+            onclick="openclose()"></button>
+        </div>
+        <h2 class="guide" id="msg">
+            ** 3합 맴버들이 궁금하다? 로고 클릭 ㄱㄱ **
+        </h2>
     </div>
 
-    <div class="cols">
+    <div class="cols" id="memberbox">
         <div class="row row-cols-1 row-cols-md-4 g-4">
             <div class="col">
                 <img src="IMG_5928.jpeg" class="card-img-top" alt="..." button
@@ -257,7 +277,7 @@
         </div>
     </div>
 
-    <div class="speech-bubble">
+    <div id="speech-bubble" class="speech-bubble">
         <h4> MBTI : i</h4>
         <h5>'매일같이 안부 묻는 우리, 어쩌면 절친일지도?..'</h5>
     </div>
