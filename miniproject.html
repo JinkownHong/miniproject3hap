@@ -87,8 +87,8 @@
             background-color: #ffd400;
             background-position: center;
             border: 3px solid white;
-            border-radius: 5px;
-
+            border-radius: .4em;
+            display: flex;
 
             margin: 30px auto 0px auto;
         }
@@ -98,9 +98,13 @@
             background-color: #ffd400;
             background-position: center;
             border: 3px solid white;
-            border-radius: 5px;
+            border-radius: .4em;
 
             margin: 3px auto 0px auto;
+        }
+
+        .gap {
+            margin-top: 40px;
         }
     </style>
     <script>
@@ -184,36 +188,35 @@
     </div>
 
     <div class="box">
-        <img class="profile"
-            src="https://i.ibb.co/T08MjvT/logo.png">
+        <img class="profile" src="https://i.ibb.co/T08MjvT/logo.png">
     </div>
 
     <div class="cols">
         <div class="row row-cols-1 row-cols-md-4 g-4">
             <div class="col">
-                <img src="IMG_5928.jpeg" class="card-img-top" alt="..."
-                button onclick="window.open('https://youtube.com ')"></button>
+                <img src="IMG_5928.jpeg" class="card-img-top" alt="..." button
+                    onclick="window.open('https://youtube.com ')"></button>
                 <h5 class="name">NAME : 류원형</h5>
                 <h5 class="age">AGE : 28</h5>
                 <h5 class="mbti">MBTI : INFJ</h5>
             </div>
             <div class="col">
-                <img src="KakaoTalk_Photo_2024-04-16-15-28-02.jpeg" class="card-img-top" alt="..."
-                button onclick="window.open('https://naver.com')"></button>
+                <img src="KakaoTalk_Photo_2024-04-16-15-28-02.jpeg" class="card-img-top" alt="..." button
+                    onclick="window.open('https://naver.com')"></button>
                 <h5 class="name">NAME : 홍진권</h5>
                 <h5 class="age">AGE : 26</h5>
                 <h5 class="mbti">MBTI : INFJ</h5>
             </div>
             <div class="col">
-                <img src="d.jpeg" class="card-img-top" alt="..."
-                button onclick="window.open('https://google.com')"></button>
+                <img src="d.jpeg" class="card-img-top" alt="..." button
+                    onclick="window.open('https://google.com')"></button>
                 <h5 class="name">NAME : 이행도</h5>
                 <h5 class="age">AGE : 28</h5>
                 <h5 class="mbti">MBTI : INFP</h5>
             </div>
             <div class="col">
-                <img src="jeju.jpeg" class="card-img-top" alt="..."
-                button onclick="window.open('https://daum.net')"></button>
+                <img src="jeju.jpeg" class="card-img-top" alt="..." button
+                    onclick="window.open('https://daum.net')"></button>
                 <h5 class="name">NAME : 김보현</h5>
                 <h5 class="age">AGE : 31</h5>
                 <h5 class="mbti">MBTI : INTP</h5>
@@ -272,6 +275,8 @@
                     onclick="cancel()"></td>
         </tr>
     </table>
+    <div class="gap"></div>
+
 </body>
 
 </html>
