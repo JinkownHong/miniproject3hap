@@ -162,9 +162,9 @@
             let html = ""; //생성된 div에 출력될 내용
             html += "작성자 : <span id='w_" + cnt + "'>" + writer + "</span><br/>";
             html += "내용 : <span id='c_" + cnt + "'>" + content + "</span><br/>";
-            html += "<input type='button' value='수정' onclick=editForm(" + cnt
-                + ") >"; //editForm(2)
-            html += "<input type='button' value='삭제' onclick=del(" + cnt + ")>";
+            html += "<input class='btnsetting' type='button' value='수정' onclick=editForm(" + cnt
+                + ")>"; //editForm(2)
+            html += "<input class='btnsetting' type='button' value='삭제' onclick=del(" + cnt + ")>";
             newDiv.innerHTML = html;
             cnt++;
             return newDiv;
