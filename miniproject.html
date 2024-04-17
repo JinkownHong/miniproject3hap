@@ -106,6 +106,10 @@
         .gap {
             margin-top: 40px;
         }
+
+        #editf {
+            margin: 10px 0px 10px 0px;
+        }
     </style>
     <script>
         let cnt = 1;
@@ -179,6 +183,7 @@
                 alert("비밀번호 불일치. 삭제취소");
             }
         }
+        
     </script>
 </head>
 
@@ -230,7 +235,7 @@
     </div>
 
     <form name="f">
-        <table id="t1"> <!-- id에서 class로 변경 -->
+        <table id="t1" style="padding: 10px 0px 10px 10px;"> 
             <tr>
                 <th>
                     <h3>방명록</h3>
@@ -254,7 +259,7 @@
             </tr>
         </table>
     </form>
-    <div id="list"></div> <!-- id를 클래스로 변경 -->
+    <div id="list" style="padding: 10px 0px 10px 10px;"></div> 
     <!-- 수정폼 -->
     <table id="editf" style="display: none;">
         <tr>
