@@ -50,6 +50,21 @@
             object-fit: cover;
         }
 
+        .center_box {
+            width: 500px;
+            height: 500px;
+            border-radius: 70%;
+            border: 3px solid white;
+            overflow: hidden;
+            margin: 100px auto 0px auto;
+        }
+
+        .profile_2 {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .helloworld {
             background-color: #ffd400;
             border-radius: 5px;
@@ -215,6 +230,7 @@
             $('#speech-bubble').hide();
             $('#t1').hide();
             $('#list').hide();
+            $('#button').hide();
         })
 
         function openclose() {
@@ -222,6 +238,8 @@
             $('#speech-bubble').toggle();
             $('#t1').toggle();
             $('#list').toggle();
+            $('#center-button').toggle();
+            $('#button').toggle();
         }
 
     </script>
@@ -232,7 +250,7 @@
         <h1 class="helloworld"> HELLO WORLD! WE ARE <span class="wycg">"WOULD U CHOI KANG"</span> 3합 </h1>
     </div>
 
-    <div class="box">
+    <div class="box" id="button">
         <img class="profile" src="https://i.ibb.co/T08MjvT/logo.png" alt="..." button onclick="openclose()"></button>
     </div>
 
@@ -267,6 +285,10 @@
                 <h5 class="mbti">MBTI : INTP</h5>
             </div>
         </div>
+    </div>
+
+    <div class="center_box" id="center-button">
+        <img class="profile_2" src="https://i.ibb.co/T08MjvT/logo.png" alt="..." button onclick="openclose()"></button>
     </div>
 
     <div id="speech-bubble" class="speech-bubble">
