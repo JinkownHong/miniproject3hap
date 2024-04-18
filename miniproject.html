@@ -41,7 +41,7 @@
             border-radius: 70%;
             border: 3px solid white;
             overflow: hidden;
-            margin: 0px 10px 0px auto;
+            margin: 20px auto 0px auto;
         }
 
         .profile {
@@ -106,15 +106,6 @@
             margin-top: 40px;
         }
 
-        .guide {
-            margin: 40px 330px 0px 10px;
-            color: white
-        }
-
-        .flex {
-            display: flex;
-        }
-
         #editf {
             margin: 10px 0px 10px 0px;
         }
@@ -172,7 +163,7 @@
             cnt++;
             return newDiv;
         }
-        
+
         function editForm(cnt) {
             let editDiv = document.getElementById("d_" + cnt); //수정할 글의 div
             let editForm = document.getElementById("editf");
@@ -241,41 +232,36 @@
         <h1 class="helloworld"> HELLO WORLD! WE ARE <span class="wycg">"WOULD U CHOI KANG"</span> 3합 </h1>
     </div>
 
-    <div class="flex">
-        <div class="box">
-            <img class="profile" src="https://i.ibb.co/T08MjvT/logo.png" alt="..." button
-                onclick="openclose()"></button>
-        </div>
-        <h2 class="guide" id="msg">
-            ** 3합 맴버들이 궁금하다? 로고 클릭 ㄱㄱ **
-        </h2>
+    <div class="box">
+        <img class="profile" src="https://i.ibb.co/T08MjvT/logo.png" alt="..." button onclick="openclose()"></button>
     </div>
 
     <div class="cols" id="memberbox">
         <div class="row row-cols-1 row-cols-md-4 g-4">
             <div class="col">
                 <img src="https://i.ibb.co/fxdM4fb/IMG-5928.jpg" class="card-img-top" alt="..." button
-                    onclick="window.open('https://youtube.com ')"></button>
+                    onclick="location.href='wonhyung.html'"></button>
                 <h5 class="name">NAME : 류원형</h5>
                 <h5 class="age">AGE : 28</h5>
                 <h5 class="mbti">MBTI : INFJ</h5>
             </div>
             <div class="col">
-                <img src="https://i.ibb.co/sg8Q1SJ/Kakao-Talk-Photo-2024-04-16-15-28-02.jpg" class="card-img-top" alt="..." button onclick="location.href='jinkwon.html'"></button>
+                <img src="https://i.ibb.co/sg8Q1SJ/Kakao-Talk-Photo-2024-04-16-15-28-02.jpg" class="card-img-top"
+                    alt="..." button onclick="location.href='jinkwon.html'"></button>
                 <h5 class="name">NAME : 홍진권</h5>
                 <h5 class="age">AGE : 26</h5>
                 <h5 class="mbti">MBTI : INFJ</h5>
             </div>
             <div class="col">
                 <img src="https://i.ibb.co/GMgJQyj/d.jpg" class="card-img-top" alt="..." button
-                    onclick="window.open('https://google.com')"></button>
+                    onclick="location.href='haengdo.html'"></button>
                 <h5 class="name">NAME : 이행도</h5>
                 <h5 class="age">AGE : 28</h5>
                 <h5 class="mbti">MBTI : INFP</h5>
             </div>
             <div class="col">
                 <img src="https://i.ibb.co/rGvDzWF/jeju.jpg" class="card-img-top" alt="..." button
-                    onclick="window.open('https://daum.net')"></button>
+                    onclick="location.href='bohyun.html'"></button>
                 <h5 class="name">NAME : 김보현</h5>
                 <h5 class="age">AGE : 31</h5>
                 <h5 class="mbti">MBTI : INTP</h5>
