@@ -275,14 +275,23 @@
             $('#button').hide();
         })
 
-        function openclose() {
+        $("#topbtn").click(async function () {
             $('#memberbox').toggle();
             $('#speech-bubble').toggle();
             $('#t1').toggle();
             $('#list').toggle();
             $('#center-button').toggle();
             $('#button').toggle();
-        }
+        })
+
+        $("#centerbtn").click(async function () {
+            $('#memberbox').toggle();
+            $('#speech-bubble').toggle();
+            $('#t1').toggle();
+            $('#list').toggle();
+            $('#center-button').toggle();
+            $('#button').toggle();
+        })
 
     </script>
 </head>
@@ -293,7 +302,7 @@
     </div>
 
     <div class="box" id="button">
-        <img class="profile" src="https://i.ibb.co/T08MjvT/logo.png" alt="..." button onclick="openclose()"></button>
+        <img class="profile" src="https://i.ibb.co/T08MjvT/logo.png" alt="..." button id="topbtn"></button>
     </div>
 
     <div class="cols" id="memberbox">
@@ -330,7 +339,7 @@
     </div>
 
     <div class="center_box" id="center-button">
-        <img class="profile_2" src="https://i.ibb.co/T08MjvT/logo.png" alt="..." button onclick="openclose()"></button>
+        <img class="profile_2" src="https://i.ibb.co/T08MjvT/logo.png" alt="..." button id="centerbtn"></button>
     </div>
 
     <div id="speech-bubble" class="speech-bubble">
