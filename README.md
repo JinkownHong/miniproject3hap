@@ -22,6 +22,9 @@
 	실시간으로 글을 작성하는, 예시로 블로그나 유튜브의 댓글, 식당 리뷰들도 모두 수정 삭제 기능을 제공하기에 함께 서비스 내 포함시켜 보았고, 홈페이지 내 기능적으로 불필요하다 판단 회원가입, 로그인 기능을 구현하지 않아서
 	방명록 작성 시 패스워드를 함께 입력하여 작성자만 수정, 삭제할 수 있도록 구성
 
+
+
+
 3분 30초 : 프로젝트 진행과정 소개
 
 * 프로젝트를 진행하며 어려웠던 부분 :
@@ -84,5 +87,138 @@
         })
 ￼
 
+* 여러 요소들을 가로로 원하는 방식으로 정렬하는 것
 
+가로로 정렬하는 것은 말로만 듣거나 강의를 수강하면서 여러 부분 참고할만한 것들이 있어 다소 쉬워보였으나 생각보다 애를 먹은 부분
+
+다음과 같은 문제점들이 발생하였는데,
+
+1. 이미 가로로 정렬된 부트스트랩 내 하나의 요소를 그대로 가져와 활용했을 때와 달리 가로로 정렬이 되지 않았다는 점
+2. 어찌어찌 요소들을 가로 정렬해보았으나, 문구가 밖으로 삐져나가거나 배치가 제멋대로 되는 현상이 발생
+
+display: flex 기능을 활용 문제점을 해결
+
+<div class="box"> // 사진과 글을 감싸고 있는 BOX
+<div class="photo"> <img src="이미지 url"> </div> // 조원 사진
+<div class="intro"> // 조원의 정보를 담은 글
+<h2><span style="color: #ffd400;">이름</span> : 이름</h2> 
+<br>
+<h2><span style="color: #ffd400;">나이</span> : 나이</h2>
+<br>
+<h2 button class="my-underline" onclick="window.open('')"></button>블로그 링크이동 버튼</h2>
+<h2 button class="my-underline" onclick="window.open('https://www.instagram.com/jinkwonhong/')">
+</button>인스타그램 링크이동 버튼</h2>
+<br>
+<h2><span style="color: #ffd400;">TMI</span> : 내용 1</h2>
+<br>
+<h2>내용 2-1</h2>
+<h2>내용 2-2</h2>
+<br>
+<h2>내용 3-1</h2>
+<h2>내용 3-2</h2>
+</div>
+</div>
+
+맴버 사진과 맴버의 이름, 나이, TMI 등 여러가지 정보를 가로 형태로 배치하기 위해 다음과 같이 HTML 부분을 작성
+box로 사진과 글을 감싸고,
+내용들은 <br>로 문단을 나누어 여러 줄로 깔끔하게 정리되어 보여질 수 있도록 설정
+
+.box {
+display: flex;
+justify-content: center;
+}
+ 
+.photo {
+margin: 20px;
+}
+ 
+.intro {
+margin: 20px;
+color: white;
+}
+
+위와 같이 CSS를 작성하여 부모 구역(box)을 display: flex로 가로로 배치,
+사진과 글 간 간격을 주기 위해 margin 기능을 활용하여 결과적으로 원하는대로 배치
+
+* 여러 요소들을 가로로 원하는 방식으로 정렬하는 것
+
+1. document를 활용해서 방명록 구현
+
+document.getElementById("id"); // 요소 한 개 
+document.getElementsByTagName("태그명"); // 배열 반환
+
+요소.속성 = 값 == 요소.setAttribute("속성명", "값");
+alert(요소, 속성); == 요소.getAttribute("속성명");
+요소.setAttribute("속성명", "값");
+
+document.createElement("태그명");
+부모요소.appendChild("새요소");
+부모요소.removeChild(삭제요소);
+
+2. function과 document, createElement를 활용해서 새 div를 생성하고 id, cnt를 1씩 더하게 해서 순서를 지정
+   수정과 삭제 버튼은 onclick으로 클릭 됐을 때 작동되게 구현, 이와 동일하게 수정과 삭제에서 글번호를 입력해서 활용
 		
+function mkDiv(writer, pwd, content) {
+		let newDiv = document.createElement("div");//새 div태그 생성  <div id="d_1" pwd='111'>
+		newDiv.id = "d_" + cnt;//생성한 div에 id 지정. d_cnt
+		newDiv.pwd = pwd;
+		let html = ""; //생성된 div에 출력될 내용
+		html += "writer:<span id='w_"+cnt+"'>" + writer + "</span><br/>";
+		html += "content:<span id='c_"+cnt+"'>" + content + "</span><br/>";
+		html += "<input type='button' value='수정' onclick=editForm(" + cnt
+				+ ")>"; //editForm(2)
+		html += "<input type='button' value='삭제' onclick=del(" + cnt + ")>";
+		newDiv.innerHTML = html;
+		cnt++;
+		return newDiv;
+
+	function editForm(cnt) {
+		let editDiv = document.getElementById("d_" + cnt); //수정할 글의 div
+		let editForm = document.getElementById("editf");
+		editDiv.appendChild(editForm);
+		let writer = document.getElementById("w_" + cnt).innerHTML;
+		let content = document.getElementById("c_" + cnt).innerHTML;
+		document.getElementById("editwriter").value = writer;
+		document.getElementById("editcontent").value = content;
+		document.getElementById("editbtn").cnt = cnt;//버튼에 cnt속성을 추가해서, 수정 글번호를 저장
+		editForm.style.display = '';
+
+  3.취소키 구현
+
+  function cancel() {
+		let editForm = document.getElementById("editf");
+		editForm.style.display = 'none';
+		document.getElementsByTagName("body")[0].appendChild(editForm);
+
+4.편집 및 삭제 키 구현
+
+if, else를 활용해서 상황을 나눴고 alert를 추가해서 상황 알림
+
+function edit() {
+		let cnt = document.getElementById("editbtn").cnt;
+		let editDiv = document.getElementById("d_" + cnt);
+		let pwd2 = document.getElementById("editpwd").value;//수정폼에 입력한 글 비밀번호
+		if (editDiv.pwd != pwd2) {
+			alert("비밀번호 불일치. 수정불가");
+		} else {
+			let newWriter = document.getElementById("editwriter").value;
+			let newContent = document.getElementById("editcontent").value;
+			document.getElementById("w_" + cnt).innerHTML = newWriter;
+			document.getElementById("c_" + cnt).innerHTML = newContent;
+            alert("수정 완료")
+		}
+		document.getElementById("editwriter").value = "";
+		document.getElementById("editcontent").value = "";
+		document.getElementById("editpwd").value = "";
+		cancel();
+	}
+	function del(cnt) {
+		let pwd = prompt("글 비밀번호");
+		let delDiv = document.getElementById("d_" + cnt);
+		if (pwd == delDiv.pwd) {
+			document.getElementById("list").removeChild(delDiv);
+            alert("삭제완료")
+		}else{
+			alert("비밀번호 불일치. 삭제취소");
+		}
+	}
